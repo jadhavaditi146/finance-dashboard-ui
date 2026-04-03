@@ -1,5 +1,7 @@
 {
-  "/insights/page": "app/insights/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
   "/dashboard/page": "app/dashboard/page.js",
+  "/insights/page": "app/insights/page.js",
   "/transactions/page": "app/transactions/page.js"
 }

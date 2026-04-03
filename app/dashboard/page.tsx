@@ -44,9 +44,9 @@ export default function DashboardPage() {
         }, {})
     )
 
-    // Calculate monthly balance data
+   
     const sortedTransactions = [...transactions].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    const monthlyBalance = {}
+    const monthlyBalance: Record<string, { month: string; balance: number }> = {}
     let runningBalance = 0
     sortedTransactions.forEach(t => {
       const date = new Date(t.date)
@@ -164,7 +164,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <div className="h-80 bg-gradient-to-br from-blue-50/30 to-transparent rounded-xl p-4">
-                  <ResponsiveContainer width="100%" height="100%">
+                  <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                     <LineChart data={dashboardData.monthlyBalanceData} margin={{ top: 10, right: 30, left: 20, bottom: 10 }}>
                       <XAxis
                         dataKey="month"
@@ -233,7 +233,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 <div className="h-80 bg-gradient-to-br from-gray-50/50 to-transparent rounded-xl p-6 flex items-center justify-center">
-                  <ResponsiveContainer width="100%" height="100%">
+                  <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                     <PieChart>
                       <Pie
                         data={dashboardData.categoryData}
